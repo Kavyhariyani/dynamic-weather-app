@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Weather App</title>
+    <!-- Modern Typography: Google Fonts (Outfit) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icon Library: Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="weather-default">
+    <div class="app-container glass-panel">
+        <header>
+            <div class="search-box">
+                <i class="ri-search-line"></i>
+                <input type="text" id="searchInput" placeholder="Search for a city...">
+                <button id="locationBtn" title="Use Current Location">
+                    <i class="ri-map-pin-line"></i>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Weather Info Section -->
+        <main id="weatherInfo" class="hidden">
+            <div class="weather-main">
+                <div class="weather-icon-container">
+                    <img id="weatherIcon" src="" alt="Weather Icon">
+                </div>
+                <h1 id="temperature">--°C</h1>
+                <h2 id="cityName">City Name</h2>
+                <p id="weatherCondition">Condition</p>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail-card glass-panel-sm">
+                    <i class="ri-drop-line"></i>
+                    <div>
+                        <p class="detail-title">Humidity</p>
+                        <p class="detail-value" id="humidity">--%</p>
+                    </div>
+                </div>
+                <div class="detail-card glass-panel-sm">
+                    <i class="ri-windy-line"></i>
+                    <div>
+                        <p class="detail-title">Wind Speed</p>
+                        <p class="detail-value" id="windSpeed">-- km/h</p>
+                    </div>
+                </div>
+                <div class="detail-card glass-panel-sm">
+                    <i class="ri-dashboard-3-line"></i>
+                    <div>
+                        <p class="detail-title">Pressure</p>
+                        <p class="detail-value" id="pressure">-- hPa</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Loading State -->
+        <div id="loadingState" class="state-message hidden">
+            <i class="ri-loader-4-line spin"></i>
+            <p>Fetching weather data...</p>
+        </div>
+        
+        <!-- Error State -->
+        <div id="errorState" class="state-message hidden">
+            <i class="ri-error-warning-line"></i>
+            <p id="errorMessage">City not found. Please try again.</p>
+        </div>
+        
+        <!-- Initial State -->
+        <div id="initialState" class="state-message">
+            <i class="ri-cloud-windy-line"></i>
+            <p>Search for a city or use your location to get started.</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
